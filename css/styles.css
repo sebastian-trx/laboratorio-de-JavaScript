@@ -1,0 +1,82 @@
+body{
+    box-sizing: border-box;
+    background-color: #0f0f0f;
+}
+
+div, button{
+    border-radius: 20px;
+} 
+
+button{
+    border: none;
+    cursor: pointer;
+}
+
+#container{
+    display: flex;
+    width: 800px;
+    height: 500px;
+    margin: 50px auto;
+}
+
+.columna1-container, .columna2-container{
+    border: solid black 1px;
+    width: 400px;
+    height: 500px;
+    background-color: #222831;
+}
+
+.display-columna1-container{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    align-items: center;
+}
+
+.display-columna1{
+    border: solid black 1px;
+    margin: auto;
+    width: 350px;
+    height: 60px;
+    padding: 10px;
+    background-color: #EEEEEE;
+    font-size: 28px;
+    line-height: 60px;
+}
+
+
+.display-columna2{
+    border: solid black 1px;
+    margin: 10px auto;
+    width: 350px;
+    height: 160px;
+    padding: 10px;
+    background-color: #EEEEEE;
+    font-size: 28px;
+    line-height: 40px
+}
+
+
+.container-respuestas{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+}
+
+.respuesta{
+    margin: auto;
+    width: 350px;
+    padding: 10px;
+    background-color: #393E46;
+    color: #EEEEEE;
+}
+
+.retirarse{
+    height: 88px;
+    width: 350px;
+    padding: 10px;
+    font-size: 50px;
+    background-color: #393E46;
+    margin-left: 25px;
+    color: #EEEEEE;
+}
