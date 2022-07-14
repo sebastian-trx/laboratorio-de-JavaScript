@@ -1,6 +1,6 @@
 import { respuestaBoton, finalizarJuego } from "./events.js";
 
-export const containers = (puntosDeLaPartida,randomQuestionsLevel,preguntaActual) =>{
+export const containers = (puntosDeLaPartida, randomQuestionsLevel, preguntaActual) => {
 
   let container = document.querySelector("#container");
   const columna1Container = document.createElement("div");
@@ -15,7 +15,10 @@ export const containers = (puntosDeLaPartida,randomQuestionsLevel,preguntaActual
 
   const displayColumna1 = document.createElement("div");
   displayColumna1.classList.add("display-columna1");
-  let puntosAcumulados = localStorage.getItem("puntajeAcumulado");
+  let puntosAcumulados =
+    localStorage.getItem("puntajeAcumulado") == null
+      ? 0
+      : localStorage.getItem("puntajeAcumulado");
   displayColumna1.textContent = `puntos acumulados: ${puntosAcumulados}`;
   const display2Columna1 = document.createElement("div");
   display2Columna1.classList.add("display-columna1");
@@ -26,7 +29,7 @@ export const containers = (puntosDeLaPartida,randomQuestionsLevel,preguntaActual
   const display4Columna1 = document.createElement("div");
   display4Columna1.classList.add("display-columna1");
   display4Columna1.textContent = `categoria: ${randomQuestionsLevel.categoryId}`;
-  displayColumna1Container.append(displayColumna1, display2Columna1, display3Columna1,display4Columna1);
+  displayColumna1Container.append(displayColumna1, display2Columna1, display3Columna1, display4Columna1);
 
   const botonDeRetiro = document.createElement("button");
   botonDeRetiro.classList.add("retirarse");
@@ -54,4 +57,4 @@ export const containers = (puntosDeLaPartida,randomQuestionsLevel,preguntaActual
     );
     containerRespuestas.append(respuestas);
   });
-}
+};
