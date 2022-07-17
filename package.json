@@ -1,0 +1,27 @@
+{
+  "name": "laboratorio-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "documentacion": "jsdoc -c jsdoc.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastian-trx/laboratorio-de-JavaScript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebastian-trx/laboratorio-de-JavaScript/issues"
+  },
+  "homepage": "https://github.com/sebastian-trx/laboratorio-de-JavaScript#readme",
+  "dependencies": {
+    "jsdoc": "^3.6.10"
+  }
+}

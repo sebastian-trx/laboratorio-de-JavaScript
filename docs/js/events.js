@@ -1,6 +1,17 @@
 import { view4 } from "./view4.js";
 import { saveScore } from "./saveScore.js";
 
+
+/**
+ * Esta funcion se ejecuta cuando el jugador hace clic en el alguna de las 4 respuestas,
+ * comprueba si la respuesta es correcta. Si es correcta llama a la funcion view4, si es
+ * incorrecta termina la partida
+ * @param {Boolean} answer 
+ * @param {Number} puntosDeLaPartida 
+ * @param {Number} preguntaActual 
+ * @function 
+ */
+
 export const respuestaBoton = (answer, puntosDeLaPartida, preguntaActual) => {
   if (answer) {
     view4(puntosDeLaPartida, preguntaActual);
@@ -9,6 +20,13 @@ export const respuestaBoton = (answer, puntosDeLaPartida, preguntaActual) => {
     window.location.reload();
   }
 };
+
+
+/**
+ * Esta funcion se ejecuta cuando el jugador hace clic en el boton de retirarse
+ * @param {Number} puntosDeLaPartida 
+ * @function 
+ */
 
 export const finalizarJuego = (puntosDeLaPartida) => {
   saveScore(puntosDeLaPartida)
