@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: refreshRender.js</title>
+    <title>JSDoc: Source: view4.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: refreshRender.js</h1>
+    <h1 class="page-title">Source: view4.js</h1>
 
     
 
@@ -26,20 +26,43 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Esta funcion impide que se dupliquen las etiquetas div con la
- * clase ".columna1-container" y ".columna2-container" despues 
- * de la primera ronda en adelante
+            <pre class="prettyprint source linenums"><code>import { randomQuestionByLevel } from "./randomQuestionByLevel.js";
+import { saveScore } from "./saveScore.js";
+import { refreshRender } from "./refreshRender.js";
+import { containers } from "./containers.js";
+
+
+/**
+ * En esta funcion se controlan los puntos durante la partida,
+ * el numero de la pregunta que se va mostrar y 
+ * revisa si el jugador ganó. además contiene a
+ * la funcion que permite mostrar los datos 
+ * y tambien a la funcion que impide que se duplique el contenido
+ * conforme el juego avanza
+ * 
+ * @param {Number} puntosDeLaPartida 
+ * @param {Number} preguntaActual 
  * @function
  */
+export const view4 = (puntosDeLaPartida = 0, preguntaActual = 0) => {
+  puntosDeLaPartida = puntosDeLaPartida + preguntaActual * 3;
+  preguntaActual = preguntaActual + 1;
 
-export const refreshRender = () => {
-    let containerAntiguo = document.querySelector(".columna1-container");
-      containerAntiguo.parentNode.removeChild(containerAntiguo);
-    
-      let containerAntiguo2 = document.querySelector(".columna2-container");
-      containerAntiguo2.parentNode.removeChild(containerAntiguo2);
-}</code></pre>
+  let randomQuestionsLevel = randomQuestionByLevel(preguntaActual);
+
+  if (preguntaActual > 5) {
+    alert("¡ganaste! puntos ganados: " + puntosDeLaPartida);
+    saveScore(puntosDeLaPartida);
+    window.location.reload();
+  }
+
+  if (preguntaActual > 1) {
+    refreshRender();
+  }
+
+  containers(puntosDeLaPartida, randomQuestionsLevel, preguntaActual);
+};
+</code></pre>
         </article>
     </section>
 

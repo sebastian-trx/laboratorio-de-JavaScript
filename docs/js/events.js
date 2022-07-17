@@ -5,7 +5,7 @@ import { saveScore } from "./saveScore.js";
 /**
  * Esta funcion se ejecuta cuando el jugador hace clic en el alguna de las 4 respuestas,
  * comprueba si la respuesta es correcta. Si es correcta llama a la funcion view4, si es
- * incorrecta termina la partida
+ * incorrecta termina el juego
  * @param {Boolean} answer 
  * @param {Number} puntosDeLaPartida 
  * @param {Number} preguntaActual 
@@ -24,6 +24,7 @@ export const respuestaBoton = (answer, puntosDeLaPartida, preguntaActual) => {
 
 /**
  * Esta funcion se ejecuta cuando el jugador hace clic en el boton de retirarse
+ * invoca al metodo saveScore y finaliza el juego
  * @param {Number} puntosDeLaPartida 
  * @function 
  */

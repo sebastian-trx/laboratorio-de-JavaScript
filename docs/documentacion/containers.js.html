@@ -29,15 +29,25 @@
             <pre class="prettyprint source linenums"><code>import { respuestaBoton, finalizarJuego } from "./events.js";
 
 /**
- * Esta funcion es la encargada de renderizar los elementos
+ * Esta funcion es la encargada de inyectar los nodos dentro de la etiqueta &lt;div id="container">
+ * Mediante parametros se pasa la informacion que se quiere renderizar
+ * 
  * @param {Number} puntosDeLaPartida 
- * @param {{questionTitle: "string", answerOptions: Array, level: number, categoyId: string}} randomQuestionsLevel 
+ * @param {{questionTitle: "string", answerOptions: Array, level: number, categoryId: string}} randomQuestionsLevel 
  * @param {Number} preguntaActual 
  * @function
  */
 
 export const containers = (puntosDeLaPartida, randomQuestionsLevel, preguntaActual) => {
 
+
+  /**
+   * en esta seccion se crean dos columnas contenedoras 
+   * &lt;div class="columna1-container">  
+   * &lt;div class="columna2-container">  
+   * 
+   * y se añaden a &lt;div id="container">
+   */
   let container = document.querySelector("#container");
   const columna1Container = document.createElement("div");
   columna1Container.classList.add("columna1-container");
@@ -45,10 +55,26 @@ export const containers = (puntosDeLaPartida, randomQuestionsLevel, preguntaActu
   columna2Container.classList.add("columna2-container");
   container.append(columna1Container, columna2Container);
 
+ /**
+   * En esta seccion se crea el contenedor de los 4
+   * displays que es donde se muestran los puntos acumulados,
+   * puntos de la partida actual, el nivel de la pregunta,
+   * y la categoria
+   * 
+   * &lt;div class="display-columna1-container"> 
+   * 
+   * se añaden a &lt;div class="columna1-container">
+   */
   const displayColumna1Container = document.createElement("div");
   displayColumna1Container.classList.add("display-columna1-container");
   columna1Container.append(displayColumna1Container);
 
+
+/**
+ * En esta seccion se crean las 4 etiquetas
+ * &lt;div class="display-columna1">* 4
+ * y se añaden a &lt;div class="display-columna1-container"> 
+ */
   const displayColumna1 = document.createElement("div");
   displayColumna1.classList.add("display-columna1");
   let puntosAcumulados =
@@ -67,6 +93,12 @@ export const containers = (puntosDeLaPartida, randomQuestionsLevel, preguntaActu
   display4Columna1.textContent = `categoria: ${randomQuestionsLevel.categoryId}`;
   displayColumna1Container.append(displayColumna1, display2Columna1, display3Columna1, display4Columna1);
 
+
+  /**
+   * Se crea el boton de retiro voluntario
+   * &lt;button class="retirarse">retirarse&lt;/button>
+   * y se le añade el escuchador de eventos "click"
+   */
   const botonDeRetiro = document.createElement("button");
   botonDeRetiro.classList.add("retirarse");
   botonDeRetiro.textContent = "retirarse";
@@ -75,15 +107,30 @@ export const containers = (puntosDeLaPartida, randomQuestionsLevel, preguntaActu
   );
   columna1Container.append(botonDeRetiro);
 
+  /**
+   * Se crea el display donde se van a mostrar las preguntas 
+   * &lt;div class="display-columna2">
+   */
   const display1Columna2 = document.createElement("div");
   display1Columna2.classList.add("display-columna2");
   display1Columna2.textContent = `${randomQuestionsLevel?.questionTitle}`;
   columna2Container.append(display1Columna2);
-
+ 
+  /**
+   * Se crea el contenedor de respuestas 
+   * &lt;div class="container-respuestas">
+   */
   const containerRespuestas = document.createElement("div");
   containerRespuestas.classList.add("container-respuestas");
   columna2Container.append(containerRespuestas);
 
+
+  /**
+   * Se mapean y se crean 4 respuestas del array 
+   * randomQuestionsLevel.answerOptions  
+   * A cada resouesta se añade el escuchador de eventos "click"
+   *  &lt;button class="respuesta">
+   */
   randomQuestionsLevel?.answerOptions.map((elemento) => {
     const respuestas = document.createElement("button");
     respuestas.classList.add("respuesta");
@@ -104,13 +151,13 @@ export const containers = (puntosDeLaPartida, randomQuestionsLevel, preguntaActu
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#containers">containers</a></li><li><a href="global.html#finalizarJuego">finalizarJuego</a></li><li><a href="global.html#questions">questions</a></li><li><a href="global.html#randomQuestionByLevel">randomQuestionByLevel</a></li><li><a href="global.html#refreshRender">refreshRender</a></li><li><a href="global.html#respuestaBoton">respuestaBoton</a></li><li><a href="global.html#saveScore">saveScore</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#containers">containers</a></li><li><a href="global.html#finalizarJuego">finalizarJuego</a></li><li><a href="global.html#questions">questions</a></li><li><a href="global.html#randomQuestionByLevel">randomQuestionByLevel</a></li><li><a href="global.html#refreshRender">refreshRender</a></li><li><a href="global.html#respuestaBoton">respuestaBoton</a></li><li><a href="global.html#saveScore">saveScore</a></li><li><a href="global.html#view4">view4</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Jul 17 2022 13:14:47 GMT-0500 (hora estándar de Colombia)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Jul 17 2022 17:12:03 GMT-0500 (hora estándar de Colombia)
 </footer>
 
 <script> prettyPrint(); </script>
