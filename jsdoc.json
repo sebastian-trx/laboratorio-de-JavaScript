@@ -11,7 +11,7 @@
     },
     "opts": {
         "recurse": true,
-        "destination":"./documentacion"
+        "destination":"./docs/documentacion"
 
 }
 }
